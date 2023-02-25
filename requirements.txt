@@ -2,3 +2,4 @@ telebot
 mysql-connector
 python-dotenv
 flask
+requests
