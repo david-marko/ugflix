@@ -67,6 +67,7 @@ def payment(page):
                 "consumer_id": int(user_id),
                 "username": username
             },
+            "payment_options":"mobilemoneyuganda",
             "email": "ugflix@gmail.com",
             "customer": {
                 "email": "ugflix@gmail.com",

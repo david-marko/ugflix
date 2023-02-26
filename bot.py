@@ -47,15 +47,22 @@ def send_welcome(message):
 def renew_options(message, res=False):
     print("Renewing")
     markup = types.ReplyKeyboardMarkup(row_width=2)
-    itembtn1 = types.KeyboardButton('Mobile Money (12,000 ugx)')
-    itembtn2 = types.KeyboardButton('Card (5 USD)')
-    itembtn4 = types.KeyboardButton('Crypto (5 USD)')
+    itembtn1 = types.KeyboardButton('/MoMo')
+    itembtn2 = types.KeyboardButton('/Card')
+    itembtn4 = types.KeyboardButton('/Crypto')
     markup.add(itembtn1, itembtn2, itembtn4)
-    bot.send_message(message.chat.id, "Choose Option to pay $5 Monthly Premium access:", reply_markup=markup)
+    bot.send_message(message.chat.id, "Choose Option to pay Monthly Premium access:", reply_markup=markup)
+    pay_details = """
+    - Use MoMo for Airtel or MTN (12,000 UGX)
+    - Use Card for Visa or Mastercard (5 USD)
+    - Use Crypto for BTC, LTC, ETH and more (5 USD)
+    """
+    bot.send_message(message.chat.id, pay_details, reply_markup=markup)
     # bot.send_message(message.chat.id, "Choose Option to pay $5 Monthly Premium access:")
 
-@bot.message_handler(commands=['Mobile Money (12,000 ugx)'])
+@bot.message_handler(commands=['MoMo'])
 def momo_renew(message, res=False):
+    print("Initiating Mobile Money")
     user_id = message.from_user.id
     f_name = message.from_user.first_name
     username = message.from_user.username
@@ -64,6 +71,7 @@ def momo_renew(message, res=False):
         "first_name": f_name,
         "username": username
     })
+    # print(r.content)
     if r.status_code == 200:
         link = r.json()['link']
         bot.send_message(message.chat.id, "Click the link below to securely complete the payment of 12,000 ugx using mobile money (MTN or Airtel)")
