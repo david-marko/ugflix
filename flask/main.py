@@ -1,13 +1,15 @@
 from dotenv import load_dotenv
 import os
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, session
 import requests, uuid
 
 load_dotenv()
 pub_key = os.getenv('flwv_pubkey')
 sec_key = os.getenv('flwv_seckey')
 crypto_key = os.getenv('privacygate')
+
 app = Flask(__name__)
+app.secret_key = 'secret_key'
 flutterwave_url = "https://api.flutterwave.com/v3/payments"
 
 @app.route('/')
@@ -110,6 +112,19 @@ def verify(page):
     if page == 'flutterwave':
         pass
     elif page == 'crypto':
+        pass
+
+@app.route('/admin/<page>', methods=['GET', 'POST'])
+def admin(page):
+    session_key = session['session_key']
+    if session_key:
+        if page == 'login':
+            pass
+        elif page == 'upload':
+            pass
+        elif page == 'list':
+            pass
+    else:
         pass
 
 if __name__ == '__main__':
