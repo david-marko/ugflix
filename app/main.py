@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request, redirect, jsonify, session
 import requests, uuid
 from base64 import b64encode
+import mysql.connector
 
 load_dotenv()
 
