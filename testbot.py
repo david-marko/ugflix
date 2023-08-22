@@ -9,7 +9,7 @@ bot_name = "UGFlix"
 host = "https://ugflix.vercel.app"
 
 admin = "someboddy"
-bot = telebot.TeleBot('6162698092:AAHCqdH2_3HBhBaF_cfC-t_GA_KP5QmwSDw')
+bot = telebot.TeleBot('')
 
 # Define the initial state
 state = {}

@@ -9,13 +9,13 @@ bot = telebot.TeleBot(bot_token)
 bot_name = "UGFlix"
 host = "https://ugflix.vercel.app"
 
-redis_host = "redis-18179.c244.us-east-1-2.ec2.cloud.redislabs.com"
+redis_host = ""
 port = 18179
-password = "GqRUKfxeoNBuPmwIIRxuoKWgQRHWr9eG"
+password = ""
 red = redis.Redis(host=redis_host, port=port, db=0, password=password)
 
 admin = "someboddy"
-bot = telebot.TeleBot('6162698092:AAHCqdH2_3HBhBaF_cfC-t_GA_KP5QmwSDw')
+bot = telebot.TeleBot('')
 
 # Define the initial state
 state = {}
